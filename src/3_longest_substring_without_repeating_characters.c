@@ -1,14 +1,16 @@
 int lengthOfLongestSubstring(char* s) {
-    int charLastPos[256] = {-1};
+    int cLastPos[256] = {-1};
+    memset(cLastPos, -1, sizeof(cLastPos)); /* Cause -1 is 0xffffffff */
+    
     int maxLength = 0;
     int length = strlen(s);
-    int suffix = 0;
+    int suffix = -1; /* 第一个重复的字符的下标 */
     #define MAX(MAX_I, MAX_J)   ((MAX_I) > (MAX_J) ? (MAX_I) : (MAX_J))
     for (int i = 0; i < length; i++) {
-        suffix = MAX(suffix, charLastPos[s[i]] + 1);
+        suffix = MAX(suffix, cLastPos[s[i]]);
         maxLength = MAX(maxLength, i - suffix);
-        charLastPos[s[i]] = i;
+        cLastPos[s[i]] = i;
     }
     
-    return maxLength + 1;
+    return maxLength;
 }
