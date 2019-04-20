@@ -19,7 +19,7 @@ public:
     string convert(string src, int numRows) {
         int srcLen = src.length();
 
-        /* Actually I'm thinking we shoule return what when para is illegal! */
+        /* Actually I'm thinking what should we return when para is illegal! */
         if (0 == srcLen || numRows <= 0) {
             return src;
         }
