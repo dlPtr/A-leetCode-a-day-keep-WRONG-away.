@@ -29,3 +29,24 @@ public:
         return (i == maxLength / 2);
     }
 };
+
+/*
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0)
+            return false;
+        else if (x == 0)
+            return true;
+        
+        int x_copy = x;
+        long x_reverse = 0;
+        while (x_copy) {
+            x_reverse = x_reverse * 10 + x_copy % 10;
+            x_copy /= 10;
+        }
+        
+        return (x_reverse == x);
+    }
+};
+*/
